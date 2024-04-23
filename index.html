@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <p>DOM Tree</p>
+    <button id="color">change the tagname color</button>
+    <div id="fruit" style="text-align:center;">CRICKET KITS</div>
+    <br>
+    <button onclick="changeElement()">Change the element</button><br>
+    <button onclick="changeContent()">Change the content</button><br>
+    <input id="input">
+    <button onclick="add()">ADD</button>
+    <ul id="list">
+        <li>Bat
+            <button onclick="deleteitem(event)">DELETE</button>
+        </li>
+    </ul>
+    <script>
+        var ul=document.getElementById("list")
+        var input=document.getElementById("input")
+        var div=document.getElementById("fruit")
+        var mine=document.getElementsByTagName("p")[0];
+        function color(){
+            mine.style.backgroundColor="blue";
+            mine.style.color="white";
+           mine.style.fontSize="40px";
+           mine.style.textAlign="center";
+        
+        
+        }
+        function changeElement(){
+        div.innerHTML="<h1>CRICKET KITS</h1>"
+        div.style.color="red";
+        div.style.fontSize="35px";
+        }
+        function changeContent(){
+         div.textContent="Cricket"
+        }
+        function add(){
+            var item=document.createElement("li")
+            item.innerHTML=input.value+"<button onclick='deleteitem(event)'>DELETE</button>"
+            ul.append(item)
+        }
+        function deleteitem(event){
+            event.target.parentElement.remove()
+        }
+        button.addEventListener('click',add);
+    </script>
+</body>
+</html>
